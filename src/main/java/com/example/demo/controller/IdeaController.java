@@ -58,3 +58,4 @@ public class IdeaController {
         return ResponseEntity.noContent().build();
     }
 }
+//pr command
