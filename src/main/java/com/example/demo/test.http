@@ -1,0 +1,22 @@
+### Get all ideas
+GET http://localhost:8080/ideas
+
+###
+
+### Create Idea
+POST http://localhost:8080/ideas
+Content-Type: application/json
+
+{
+  "title": "Academic DevOps Tracker",
+  "description": "Team idea proposal system",
+  "submittedBy": "Member3"
+}
+
+###
+
+### Update Idea Status
+PUT http://localhost:8080/ideas/1/status?status=ACCEPTED
+
+### Delete Idea
+DELETE http://localhost:8080/ideas/2
