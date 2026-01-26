@@ -26,9 +26,8 @@ jobs:
       - name: Build & Test with Maven
         run: ./mvnw clean verify
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          projectBaseDir: demo
+        run: mvn verify sonar:sonar \
+      -Dsonar.projectKey=ideasync-backend \
+      -Dsonar.organization=sakthi-meera-007 \
+      -Dsonar.host.url=https://sonarcloud.io \
+      -Dsonar.login=${{ secrets.SONAR_TOKEN }}
