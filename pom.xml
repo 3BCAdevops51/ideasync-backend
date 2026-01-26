@@ -29,6 +29,10 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	<properties>
+    <sonar.projectKey>sakthi-meera-007_ideasync-backend</sonar.projectKey>
+    <sonar.organization>sakthi-meera-007</sonar.organization>
+</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
