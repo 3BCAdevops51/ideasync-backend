@@ -43,3 +43,9 @@ jobs:
             -Dsonar.projectKey=sakthi-meera-007_ideasync-backend \
             -Dsonar.organization=sakthi-meera-007 \
             -Dsonar.host.url=https://sonarcloud.io
+      - name: Debug folder structure
+        run: |
+        pwd
+        ls -la
+        find . -maxdepth 3 -type d
+
