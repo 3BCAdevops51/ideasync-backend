@@ -29,12 +29,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('demo/pom.xml') }}
+          key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-m2
 
-      - name: Build & SonarCloud analysis (demo project)
-        working-directory: demo
+      - name: Build & SonarCloud analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -47,4 +46,3 @@ jobs:
         run: |
           pwd
           ls -la
-          find . -maxdepth 3 -type d
