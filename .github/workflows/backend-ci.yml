@@ -13,6 +13,10 @@ jobs:
   backend-ci:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: demo
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,7 +33,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
+          key: ${{ runner.os }}-m2-${{ hashFiles('demo/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-m2
 
@@ -37,12 +41,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-          -Dsonar.projectKey=sakthi-meera-007_ideasync-backend \
-          -Dsonar.organization=sakthi-meera-007 \
-          -Dsonar.host.url=https://sonarcloud.io
-
-      - name: Debug folder structure
         run: |
-          pwd
-          ls -la
+          mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.projectKey=sakthi-meera-007_ideasync-backend \
+            -Dsonar.organization=sakthi-meera-007 \
+            -Dsonar.host.url=https://sonarcloud.io
