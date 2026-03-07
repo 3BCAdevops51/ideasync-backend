@@ -145,6 +145,7 @@ Secret used:
 * `SONAR_TOKEN` stored in GitHub Secrets
 
 ---
+<img width="1366" height="768" alt="Screenshot (51)" src="https://github.com/user-attachments/assets/9034f8c8-069c-4d3c-85c9-04265b7bba52" />
 
 ##  Future Enhancements
 
