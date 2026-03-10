@@ -42,7 +42,7 @@ jobs:
             -Dsonar.projectKey=sakthi-meera-007_ideasync-backend \
             -Dsonar.organization=sakthi-meera-007 \
             -Dsonar.host.url=https://sonarcloud.io
-        working-directory: demo
+        
 
       # Login to DockerHub
       - name: Login to DockerHub
@@ -54,7 +54,7 @@ jobs:
       # Build Docker image
       - name: Build Docker Image
         run: docker build -t sakthimeera07/ideasync-backend:latest .
-        working-directory: demo
+        
 
       # Push Docker image
       - name: Push Docker Image
