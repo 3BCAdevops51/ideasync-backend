@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
+          key: ${{ runner.os }}-m2-${{ hashFiles('demo/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-m2
 
@@ -42,3 +42,20 @@ jobs:
             -Dsonar.projectKey=sakthi-meera-007_ideasync-backend \
             -Dsonar.organization=sakthi-meera-007 \
             -Dsonar.host.url=https://sonarcloud.io
+        working-directory: demo
+
+      # Login to DockerHub
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Build Docker image
+      - name: Build Docker Image
+        run: docker build -t sakthimeera07/ideasync-backend:latest .
+        working-directory: demo
+
+      # Push Docker image
+      - name: Push Docker Image
+        run: docker push sakthimeera07/ideasync-backend:latest
