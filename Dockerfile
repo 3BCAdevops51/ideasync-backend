@@ -1,19 +1,9 @@
-# Build stage
-FROM maven:3.9.9-eclipse-temurin-21 AS build
+FROM openjdk:17-jdk-slim
+
 WORKDIR /app
 
-COPY pom.xml .
-RUN mvn dependency:go-offline
-
-COPY src ./src
-RUN mvn clean package -DskipTests
-
-# Production stage
-FROM eclipse-temurin:21-jdk-jammy
-WORKDIR /app
-
-COPY --from=build /app/target/*.jar app.jar
+COPY target/*.jar app.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","/app.jar"]

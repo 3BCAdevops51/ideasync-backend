@@ -14,7 +14,7 @@ import java.util.List;
 public class IdeaController {
 
     private final IdeaRepository repository;
-
+//sonar check comment
     // ✅ Constructor Injection (BEST PRACTICE)
     public IdeaController(IdeaRepository repository) {
         this.repository = repository;
