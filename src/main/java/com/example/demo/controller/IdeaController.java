@@ -15,6 +15,7 @@ public class IdeaController {
 
     private final IdeaRepository repository;
 //sonar check comment
+    //sonar check
     // ✅ Constructor Injection (BEST PRACTICE)
     public IdeaController(IdeaRepository repository) {
         this.repository = repository;
